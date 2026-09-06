@@ -35,7 +35,7 @@ man_fashion_e_commernce/
 
 - Node.js 20+
 - Docker & Docker Compose
-- npm 10+
+- pnpm 10+
 
 ### Local Development
 
@@ -43,7 +43,7 @@ man_fashion_e_commernce/
    ```bash
    git clone https://github.com/HussamAlraggad/man_fashion_e_commernce.git
    cd man_fashion_e_commernce
-   npm install
+   pnpm install
    ```
 
 2. **Configure environment**
@@ -62,12 +62,12 @@ man_fashion_e_commernce/
 
 4. **Run database migrations**
    ```bash
-   npm run db:migrate
+   pnpm --filter back_end migrate
    ```
 
 5. **Start development servers**
    ```bash
-   npm run dev
+   pnpm run dev
    # Frontend: http://localhost:3000
    # Backend:  http://localhost:9000
    ```
@@ -76,14 +76,14 @@ man_fashion_e_commernce/
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start both frontend & backend |
-| `npm run build` | Build both workspaces |
-| `npm run lint` | Lint both workspaces |
-| `npm run typecheck` | TypeScript check both workspaces |
-| `npm run test` | Run tests |
-| `npm run db:generate` | Generate Prisma client |
-| `npm run db:migrate` | Run Prisma migrations |
-| `npm run db:studio` | Open Prisma Studio |
+| `pnpm run dev` | Start both frontend & backend |
+| `pnpm run build` | Build both workspaces |
+| `pnpm run lint` | Lint both workspaces |
+| `pnpm run typecheck` | TypeScript check both workspaces |
+| `pnpm run test` | Run tests |
+| `pnpm --filter back_end db:generate` | Generate Prisma client |
+| `pnpm --filter back_end migrate` | Run Prisma migrations |
+| `pnpm --filter back_end db:studio` | Open Prisma Studio |
 
 ## Environment Variables
 
@@ -113,7 +113,7 @@ man_fashion_e_commernce/
 ### Frontend (Netlify)
 
 1. Connect repository to Netlify
-2. Set build command: `npm run build` (base: `front_end`)
+2. Set build command: `pnpm run build` (base: `front_end`)
 3. Set publish directory: `.next`
 4. Add environment variables in Netlify dashboard
 5. Deploy
@@ -122,15 +122,15 @@ man_fashion_e_commernce/
 
 1. Create new Web Service on Render
 2. Connect repository
-3. Set build command: `npm run build` (base: `back_end`)
-4. Set start command: `npm run start`
+3. Set build command: `pnpm run build` (base: `back_end`)
+4. Set start command: `pnpm run start`
 5. Add environment variables in Render dashboard
 6. Deploy
 
 ### Database (Supabase)
 
 1. Create Supabase project
-2. Run migrations: `npx prisma migrate deploy`
+2. Run migrations: `pnpm --filter back_end migrate`
 3. Add `DATABASE_URL` to environment variables
 
 ## Features
