@@ -2,26 +2,21 @@
   "name": "man-fashion-ecommerce",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "front_end",
-    "back_end"
-  ],
+  "packageManager": "pnpm@10.4.0",
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace=front_end\" \"npm run dev --workspace=back_end\"",
-    "build": "npm run build --workspaces",
-    "lint": "npm run lint --workspaces",
-    "typecheck": "npm run typecheck --workspaces",
-    "test": "npm run test --workspaces",
-    "db:generate": "npm run db:generate --workspace=back_end",
-    "db:migrate": "npm run db:migrate --workspace=back_end",
-    "db:studio": "npm run db:studio --workspace=back_end",
-    "install:all": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --workspace=front_end && npm install --legacy-peer-deps --workspace=back_end"
+    "dev": "concurrently \"pnpm --filter front_end dev\" \"pnpm --filter back_end dev\"",
+    "build": "pnpm --filter front_end build && pnpm --filter back_end build",
+    "lint": "pnpm --filter front_end lint && pnpm --filter back_end lint",
+    "typecheck": "pnpm --filter front_end typecheck && pnpm --filter back_end typecheck",
+    "test": "pnpm --filter front_end test && pnpm --filter back_end test",
+    "db:generate": "pnpm --filter back_end db:generate",
+    "db:migrate": "pnpm --filter back_end db:migrate",
+    "db:studio": "pnpm --filter back_end db:studio"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "packageManager": "npm@10.8.0"
+  }
 }

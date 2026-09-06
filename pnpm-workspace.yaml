@@ -1,0 +1,4 @@
+packages:
+  - front_end
+  - back_end
+  - shared

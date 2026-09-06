@@ -1,13 +1,12 @@
-import { Module } from "@medusajs/framework/utils";
+import { Module } from "@medusajs/framework/utils"
+import { MeasurementsService } from "./service"
 
-export const MEASUREMENTS_MODULE = "measurements";
+export const MEASUREMENTS_MODULE = "measurements"
 
-class MeasurementsService {
-  // Service methods will be implemented here
-}
-
-Module(MEASUREMENTS_MODULE, {
+const measurementsModule = Module(MEASUREMENTS_MODULE, {
   service: MeasurementsService,
-});
+})
+
+export default measurementsModule
 
 export class MeasurementsModule {}
